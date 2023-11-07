@@ -1,13 +1,19 @@
 # iChat Message Extractor
 
+## **update** 11/6/23
+
+Included the use of the tkinter library. Running this python script will now pull up a finder window so you can select your directory through the normal graphical interface on MacOS. If I use this script again or if anyone requests it, I will make this application into a full on app that can be shared and run like any other app on MacOS. 
+
+---
+
+<br>
+
+
 This repository contains a Python script to extract messages and timestamps from iChat `.ichat` files and save them to `.txt` files. The script is designed to work with the iChat format and might be specific to certain versions of the software.
 
-I built this script to handle my specific use-case of extracting the message content of a list of .ichat files that were dated from June, 2019 - January 2019. Because iChat files do not specify the precise version of iMessages I cannot explicitly know if other iChat files will work with this script as-is. 
+I built this script to handle my specific use-case of extracting the message content of a list of .ichat files that were dated from June, 2019 - January 2019. Because iChat files do not specify the precise version of iMessages I cannot explicitly know if other iChat files will work with this script as-is. So far, I've had no issues with any version of `.ichat` files.
 
 You are encouraged to use this to whatever ends you so please if it helps in any way. If nothing else and you haven't already, this lays the groundwork for a customized script to transform the binary p_list of an iChat file into a more readable and useful xml file. 
-
-You can also perform this action over several documents at once thereby automating a task that would have taken you some time longer.
-And then wWith this newly unallocated time, you will now be able to work even harder for your company and with less distractions! 
 
 ## Requirements
 
@@ -20,11 +26,8 @@ And then wWith this newly unallocated time, you will now be able to work even ha
 2. Navigate to the directory containing the script using a terminal.
 3. Run the script with the command:
    ```
-   python extract_to_separate_files.py path_to_ichat_file1 path_to_ichat_file2 ...
+   python app.py
    ```
-   Replace `path_to_ichat_file1`, `path_to_ichat_file2`, etc., with the paths to your `.ichat` files.
-4. For each input `.ichat` file, an output `.txt` file will be created in the same directory with the extracted messages.
-
 ## How it Works
 
 - The script uses the `plutil` command to convert the binary plist iChat file to XML format.

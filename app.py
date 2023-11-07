@@ -5,6 +5,8 @@ import datetime
 import subprocess
 import os
 
+import tkinter as tk
+from tkinter import filedialog
 
 def apple_time_to_datetime(apple_time):
     """Convert Apple's timestamp to a standard datetime."""
@@ -34,14 +36,19 @@ def extract_messages_from_content(content):
     return list(zip(timestamps_converted, messages_extracted))
 
 
-def main():
-    """Main function to process iChat files in the given directory."""
-    import sys
-    if len(sys.argv) < 2:
-        print("Usage: python script_name.py path_to_directory_with_ichat_files")
-        sys.exit(1)
+def gui_select_folder():
+    """Open a dialog to select a folder and run the program on it."""
+    root = tk.Tk()
+    root.withdraw()  # Hide the main window
+    # Show the dialog to choose a folder
+    folder_selected = filedialog.askdirectory()
+    if folder_selected:  # If a folder was selected
+        process_ichat_files(folder_selected)
+    root.destroy()
 
-    directory_path = sys.argv[1]
+
+def process_ichat_files(directory_path):
+    """Process iChat files in the given directory."""
     ichat_files = [os.path.join(directory_path, f) for f in os.listdir(
         directory_path) if f.endswith('.ichat')]
 
@@ -55,4 +62,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    gui_select_folder()
